@@ -45,7 +45,11 @@ function ResidentAuth() {
       saveSession(token, user);
       navigate("/");
     } catch (err) {
-      setError(err.response?.data?.message || err.message || "Authentication failed.");
+      if (err.code === "ERR_NETWORK") {
+        setError("Cannot reach backend. Start backend with npm run dev on port 5000.");
+      } else {
+        setError(err.response?.data?.message || err.message || "Authentication failed.");
+      }
     } finally {
       setLoading(false);
     }

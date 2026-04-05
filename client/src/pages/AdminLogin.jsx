@@ -31,7 +31,11 @@ function AdminLogin() {
       saveSession(token, user);
       navigate("/admin/dashboard");
     } catch (err) {
-      setError(err.response?.data?.message || "Invalid login details.");
+      if (err.code === "ERR_NETWORK") {
+        setError("Cannot reach backend. Start backend with npm run dev on port 5000.");
+      } else {
+        setError(err.response?.data?.message || "Invalid login details.");
+      }
     } finally {
       setLoading(false);
     }
