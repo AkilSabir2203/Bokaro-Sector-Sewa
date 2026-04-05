@@ -28,6 +28,14 @@ app.get("/api/health", (req, res) => {
   });
 });
 
+app.get("/api", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Bokaro Sector-Sewak API base endpoint.",
+    endpoints: ["/api/health", "/api/auth/login", "/api/auth/signup"],
+  });
+});
+
 app.use("/api/auth", authRoutes);
 app.use("/api/complaints", complaintRoutes);
 app.use("/api/admin/dashboard", adminDashboardRoutes);
