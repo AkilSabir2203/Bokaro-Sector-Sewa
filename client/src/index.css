@@ -146,6 +146,18 @@ nav a.active {
   background: rgba(15, 143, 143, 0.11);
 }
 
+.nav-logout {
+  padding: 9px 14px;
+  border: 1px solid #cfd7d7;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+
+.nav-logout:hover {
+  background: #f2f7f7;
+}
+
 .card {
   background: var(--card);
   border: 1px solid var(--line);

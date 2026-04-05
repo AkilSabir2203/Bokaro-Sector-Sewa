@@ -1,6 +1,15 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { clearSession, getUserProfile } from "../lib/auth";
 
 function NavBar() {
+  const navigate = useNavigate();
+  const user = getUserProfile();
+
+  const handleLogout = () => {
+    clearSession();
+    navigate("/resident/auth");
+  };
+
   return (
     <header className="nav-shell">
       <Link to="/" className="brand">
@@ -18,6 +27,12 @@ function NavBar() {
         <NavLink to="/track">My Status</NavLink>
         <NavLink to="/resident/auth">Resident Auth</NavLink>
         <NavLink to="/admin/login">Admin</NavLink>
+
+        {user && (
+          <button type="button" className="btn-muted nav-logout" onClick={handleLogout}>
+            Logout
+          </button>
+        )}
       </nav>
     </header>
   );

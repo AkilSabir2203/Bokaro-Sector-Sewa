@@ -13,6 +13,14 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Bokaro Sector-Sewak API is live.",
+    docs: "/api/health",
+  });
+});
+
 app.get("/api/health", (req, res) => {
   res.status(200).json({
     success: true,
