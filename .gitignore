@@ -1,0 +1,28 @@
+node_modules/
+.env
+npm-debug.log*
+
+# frontend
+client/node_modules/
+client/dist/
+
+# logs
+logs/
+*.log
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+client/.env
+
+# coverage
+coverage/
+
+# OS/editor
+.DS_Store
+Thumbs.db
